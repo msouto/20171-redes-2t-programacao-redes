@@ -1,7 +1,8 @@
 import socket
 
 #Variaveis de apoio
-HOST = socket.gethostbyname('localhost')
+#HOST = socket.gethostbyname('localhost')
+HOST = '10.25.3.230'
 PORT = 2000
 
 #instanciando transporte TCP/IP
@@ -21,5 +22,5 @@ while True:
     client.send(byte_msg)
     if not data: break
     print("\n Mensagem recebida:", data)
-client.close()
+    client.close()
 tcp_server_socket.close()
