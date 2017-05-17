@@ -11,8 +11,9 @@ tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp_server_socket.bind((HOST,PORT))
 tcp_server_socket.listen()
 
-client, addr = tcp_server_socket.accept()
+
 while True:
+    client, addr = tcp_server_socket.accept()
     #receber os dados do cliente
     data = client.recv(1024)
     #preparo mensagem de confirmacao de recebimento
