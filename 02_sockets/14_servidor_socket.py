@@ -21,6 +21,8 @@ while True:
     #envio da mensagem de confirmacao
     client.send(byte_msg)
     if not data: break
-    print("\n Mensagem recebida:", data)
-    client.close()
+    print("\n IP:",addr)
+    print(" Mensagem recebida:", data)
+
+client.close()
 tcp_server_socket.close()
