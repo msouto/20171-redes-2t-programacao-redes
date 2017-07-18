@@ -23,3 +23,27 @@ class ThreadServer(object):
 
 
     def listenToClient(self, client, address):
+        size = 1024
+        while True:
+            try:
+                data = client.recv(size)
+                if data:
+                    #configurar para enviar o echo de volta o dado recebido
+                    response = data
+                    client.send(response)
+                else:
+                    raise error('Cliente desconectado')
+            except:
+                client.close()
+                return False
+
+if __name__ == '__main__':
+    while True:
+        port_num = input("Porta:")
+        try:
+            port_num = int(port_num)
+            break
+        except ValueError:
+            pass
+
+    ThreadServer('localhost',port_num).listen()
